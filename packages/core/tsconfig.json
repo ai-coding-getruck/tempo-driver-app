@@ -12,6 +12,10 @@
     "outDir": "./dist",
     "declaration": true
   },
-  "include": ["hooks", "services", "infrastructure"],
+  "references": [
+    { "path": "./services" },
+    { "path": "./hooks" },
+    { "path": "./infrastructure" }
+  ],
   "exclude": ["node_modules", "dist"]
 }

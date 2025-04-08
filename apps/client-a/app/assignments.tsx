@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
-import { AssignmentItem } from '@org/shared/components';
-import { ClientAssignment, AssignmentItemType } from '@org/core/services/types';
+import { AssignmentItem } from 'shared/components';
+import { ClientAssignment, AssignmentItemType } from '@core/services';
 import { getContainer } from './_layout';
-import { WAZE_SERVICE } from '@org/core/infrastructure/container';
-import { IWazeService } from '@org/core/services/waze.service';
+import { WAZE_SERVICE } from '@core/infrastructure';
+import { IWazeService } from '@core/services';
 
 // Mock data for assignments
 const mockAssignments: ClientAssignment[] = [

@@ -1,0 +1,26 @@
+{
+  "name": "@core/infrastructure",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/core/infrastructure/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/core/infrastructure",
+        "main": "packages/core/infrastructure/src/index.ts",
+        "tsConfig": "packages/core/infrastructure/tsconfig.json",
+        "assets": ["packages/core/infrastructure/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/core/infrastructure/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

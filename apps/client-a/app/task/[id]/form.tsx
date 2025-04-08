@@ -1,11 +1,11 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import { useForm } from "react-hook-form";
-import { useRouteStore } from "../../../../../packages/core/hooks";
-import { Button, FormField } from "../../../../../packages/shared/components";
-import { getContainer } from "../../_layout";
-import { RouteService } from "../../../../../packages/core/services";
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useForm } from 'react-hook-form';
+import { useRouteStore } from '@core/hooks';
+import { Button, FormField } from '../../../../../packages/shared/components';
+import { getContainer } from '../../_layout';
+import { RouteService } from '@core/services';
 
 export default function TaskFormScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -37,7 +37,7 @@ export default function TaskFormScreen() {
       // Navigate back to task details
       router.back();
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error('Error submitting form:', error);
       // Handle error
     }
   };
@@ -98,7 +98,7 @@ export default function TaskFormScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: '#f8f9fa',
     padding: 16,
   },
   header: {
@@ -106,27 +106,27 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: "700",
+    fontWeight: '700',
     marginBottom: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: "#6c757d",
+    color: '#6c757d',
   },
   formContainer: {
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
     borderRadius: 8,
     padding: 16,
     marginBottom: 24,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
   },
   buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 24,
   },
   cancelButton: {
@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
   },
   errorText: {
     fontSize: 18,
-    color: "#dc3545",
-    textAlign: "center",
+    color: '#dc3545',
+    textAlign: 'center',
     marginBottom: 16,
   },
   backButton: {

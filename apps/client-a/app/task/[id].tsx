@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import { useRouteStore } from "../../../../packages/core/hooks";
-import { Button, Card } from "../../../../packages/shared/components";
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useRouteStore } from '@core/hooks';
+import { Button, Card } from '../../../../packages/shared/components';
 
 export default function TaskDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -41,20 +41,20 @@ export default function TaskDetailsScreen() {
               styles.statusBadge,
               {
                 backgroundColor:
-                  selectedTask.status === "completed"
-                    ? "#28a745"
-                    : selectedTask.status === "in-progress"
-                      ? "#17a2b8"
-                      : "#ffc107",
+                  selectedTask.status === 'completed'
+                    ? '#28a745'
+                    : selectedTask.status === 'in-progress'
+                      ? '#17a2b8'
+                      : '#ffc107',
               },
             ]}
           >
             <Text style={styles.statusText}>
-              {selectedTask.status === "completed"
-                ? "Completed"
-                : selectedTask.status === "in-progress"
-                  ? "In Progress"
-                  : "Pending"}
+              {selectedTask.status === 'completed'
+                ? 'Completed'
+                : selectedTask.status === 'in-progress'
+                  ? 'In Progress'
+                  : 'Pending'}
             </Text>
           </View>
         </View>
@@ -82,7 +82,7 @@ export default function TaskDetailsScreen() {
           ))}
         </View>
 
-        {selectedTask.status !== "completed" && (
+        {selectedTask.status !== 'completed' && (
           <Button
             title="Start Task"
             onPress={handleStartTask}
@@ -90,7 +90,7 @@ export default function TaskDetailsScreen() {
           />
         )}
 
-        {selectedTask.status === "completed" && selectedTask.formData && (
+        {selectedTask.status === 'completed' && selectedTask.formData && (
           <View style={styles.completedContainer}>
             <Text style={styles.completedTitle}>Submitted Information:</Text>
             {/* Display submitted form data here */}
@@ -105,7 +105,7 @@ export default function TaskDetailsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: '#f8f9fa',
     padding: 16,
   },
   card: {
@@ -113,22 +113,22 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: "700",
+    fontWeight: '700',
     marginBottom: 8,
   },
   description: {
     fontSize: 16,
-    color: "#212529",
+    color: '#212529',
     marginBottom: 16,
   },
   statusContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 16,
   },
   statusLabel: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
     marginRight: 8,
   },
   statusBadge: {
@@ -138,16 +138,16 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 12,
-    fontWeight: "600",
-    color: "#ffffff",
+    fontWeight: '600',
+    color: '#ffffff',
   },
   infoContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 8,
   },
   infoLabel: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
     marginRight: 8,
     width: 120,
   },
@@ -161,25 +161,25 @@ const styles = StyleSheet.create({
   },
   formFieldsTitle: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
     marginBottom: 12,
   },
   formField: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingVertical: 8,
     borderBottomWidth: 1,
-    borderBottomColor: "#e9ecef",
+    borderBottomColor: '#e9ecef',
   },
   formFieldLabel: {
     fontSize: 16,
   },
   formFieldType: {
     fontSize: 14,
-    color: "#6c757d",
+    color: '#6c757d',
   },
   required: {
-    color: "#dc3545",
+    color: '#dc3545',
   },
   startButton: {
     marginTop: 16,
@@ -187,12 +187,12 @@ const styles = StyleSheet.create({
   completedContainer: {
     marginTop: 16,
     padding: 16,
-    backgroundColor: "#e9ecef",
+    backgroundColor: '#e9ecef',
     borderRadius: 8,
   },
   completedTitle: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
     marginBottom: 12,
   },
   completedText: {
@@ -200,8 +200,8 @@ const styles = StyleSheet.create({
   },
   errorText: {
     fontSize: 18,
-    color: "#dc3545",
-    textAlign: "center",
+    color: '#dc3545',
+    textAlign: 'center',
     marginBottom: 16,
   },
   backButton: {

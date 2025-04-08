@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { useRouter } from "expo-router";
-import { getContainer } from "./_layout";
-import { RouteService } from "../../../packages/core/services";
-import { useRouteStore } from "../../../packages/core/hooks";
-import { Button, Card } from "../../../packages/shared/components";
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useRouter } from 'expo-router';
+import { getContainer } from './_layout';
+import { RouteService } from '@core/services';
+import { useRouteStore } from '@core/hooks';
+import { Button, Card } from '../../../packages/shared/components';
 import {
   formatDate,
   getRelativeTime,
-} from "../../../packages/shared/utils/dateUtils";
+} from '../../../packages/shared/utils/dateUtils';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function HomeScreen() {
           setAssignments(assignmentList);
         }
       } catch (error) {
-        console.error("Error loading data:", error);
+        console.error('Error loading data:', error);
       }
     };
 
@@ -37,16 +37,16 @@ export default function HomeScreen() {
   }, []);
 
   const getCompletionStatus = () => {
-    if (!assignments.length) return "0%";
+    if (!assignments.length) return '0%';
 
     const completed = assignments.filter(
-      (a) => a.status === "completed",
+      (a) => a.status === 'completed',
     ).length;
     return `${Math.round((completed / assignments.length) * 100)}%`;
   };
 
   const navigateToAssignments = () => {
-    router.push("/assignments");
+    router.push('/assignments');
   };
 
   if (!currentRoute) {
@@ -76,7 +76,7 @@ export default function HomeScreen() {
           </View>
           <View style={styles.summaryItem}>
             <Text style={styles.summaryLabel}>Status</Text>
-            <Text style={[styles.summaryValue, { color: "#17a2b8" }]}>
+            <Text style={[styles.summaryValue, { color: '#17a2b8' }]}>
               {currentRoute.status.charAt(0).toUpperCase() +
                 currentRoute.status.slice(1)}
             </Text>
@@ -101,20 +101,20 @@ export default function HomeScreen() {
                   styles.statusBadge,
                   {
                     backgroundColor:
-                      assignment.status === "completed"
-                        ? "#28a745"
-                        : assignment.status === "in-progress"
-                          ? "#17a2b8"
-                          : "#ffc107",
+                      assignment.status === 'completed'
+                        ? '#28a745'
+                        : assignment.status === 'in-progress'
+                          ? '#17a2b8'
+                          : '#ffc107',
                   },
                 ]}
               >
                 <Text style={styles.statusText}>
-                  {assignment.status === "completed"
-                    ? "Completed"
-                    : assignment.status === "in-progress"
-                      ? "In Progress"
-                      : "Pending"}
+                  {assignment.status === 'completed'
+                    ? 'Completed'
+                    : assignment.status === 'in-progress'
+                      ? 'In Progress'
+                      : 'Pending'}
                 </Text>
               </View>
             </View>
@@ -134,7 +134,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: '#f8f9fa',
     padding: 16,
   },
   header: {
@@ -142,38 +142,38 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "700",
+    fontWeight: '700',
   },
   date: {
     fontSize: 16,
-    color: "#6c757d",
+    color: '#6c757d',
     marginTop: 4,
   },
   summaryCard: {
     marginBottom: 24,
   },
   summaryRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   summaryItem: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   summaryLabel: {
     fontSize: 14,
-    color: "#6c757d",
+    color: '#6c757d',
     marginBottom: 4,
   },
   summaryValue: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   section: {
     marginBottom: 24,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
     marginBottom: 12,
   },
   assignmentCard: {
@@ -181,22 +181,22 @@ const styles = StyleSheet.create({
   },
   assignmentTitle: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
     marginBottom: 4,
   },
   assignmentDescription: {
     fontSize: 14,
-    color: "#6c757d",
+    color: '#6c757d',
     marginBottom: 12,
   },
   assignmentFooter: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   assignmentTime: {
     fontSize: 12,
-    color: "#6c757d",
+    color: '#6c757d',
   },
   statusBadge: {
     paddingHorizontal: 8,
@@ -205,8 +205,8 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 12,
-    fontWeight: "600",
-    color: "#ffffff",
+    fontWeight: '600',
+    color: '#ffffff',
   },
   viewAllButton: {
     marginBottom: 24,

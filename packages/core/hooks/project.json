@@ -1,0 +1,26 @@
+{
+  "name": "@core/hooks",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/core/hooks/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/core/hooks",
+        "main": "packages/core/hooks/src/index.ts",
+        "tsConfig": "packages/core/hooks/tsconfig.json",
+        "assets": ["packages/core/hooks/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/core/hooks/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
