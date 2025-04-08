@@ -1,1 +1,576 @@
-{}
+{
+  "apps/client-a": {
+    "root": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "projectType": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.cache": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "apps/client-a/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "name": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.3": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.executor": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.options": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.metadata": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.options.script": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.metadata.scriptContent": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.metadata.runCommand": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.executor": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.options": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.metadata": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.options.script": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.metadata.scriptContent": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.metadata.runCommand": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.executor": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.options": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.options.script": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata.scriptContent": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata.runCommand": [
+      "apps/client-a/package.json",
+      "nx/core/package-json"
+    ]
+  },
+  "apps/client-b": {
+    "root": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "projectType": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.cache": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "apps/client-b/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "name": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "tags": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.3": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.executor": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.options": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.metadata": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.options.script": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.metadata.scriptContent": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.android.metadata.runCommand": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.executor": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.options": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.metadata": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.options.script": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.metadata.scriptContent": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.ios.metadata.runCommand": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.executor": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.options": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.options.script": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata.scriptContent": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata.runCommand": [
+      "apps/client-b/package.json",
+      "nx/core/package-json"
+    ]
+  },
+  "packages/shared": {
+    "root": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "projectType": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.dependsOn": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.cache": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.inputs": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.outputs": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.syncGenerators": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.executor": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.cwd": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.options.command": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.technologies.0": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.description": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.command": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ],
+    "targets.typecheck.metadata.help.example": [
+      "packages/shared/tsconfig.json",
+      "@nx/js/typescript"
+    ]
+  }
+}

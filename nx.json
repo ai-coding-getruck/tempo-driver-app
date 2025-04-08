@@ -1,23 +1,51 @@
 {
-  "npmScope": "driver-assignment-tracker",
-  "affected": {
-    "defaultBase": "main"
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs"
+    ],
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
+  "nxCloudId": "67f526f2f5899945ebf7232d",
+  "plugins": [
+    {
+      "plugin": "@nx/js/typescript",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.lib.json",
+          "buildDepsName": "build-deps",
+          "watchDepsName": "watch-deps"
+        }
+      }
+    },
+    {
+      "plugin": "@nx/expo/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "prebuildTargetName": "prebuild",
+        "serveTargetName": "serve",
+        "installTargetName": "install",
+        "exportTargetName": "export",
+        "submitTargetName": "submit",
+        "runIosTargetName": "run-ios",
+        "runAndroidTargetName": "run-android",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
       }
     }
-  },
-  "targetDefaults": {
-    "build": {
-      "dependsOn": ["^build"]
-    }
-  },
-  "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "packages"
-  }
+  ]
 }
