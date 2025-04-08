@@ -1,207 +1,293 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { useRouter } from 'expo-router';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, FlatList } from 'react-native';
 import { getContainer } from './_layout';
-import { RouteService, Route, Assignment } from '@core/services';
-import { useRouteStore } from '@core/hooks';
-import { Button, Card } from '../../../packages/shared/components/src';
+import { WAZE_SERVICE } from '@core/infrastructure';
 import {
-  formatDate,
-  getRelativeTime,
-} from '../../../packages/shared/utils/dateUtils';
+  IWazeService,
+  ClientAssignment,
+  AssignmentItemType,
+} from '@core/services';
+import { AssignmentItem } from '@shared/components';
+
+// Mock data for assignments
+const mockAssignments: ClientAssignment[] = [
+  {
+    id: '1',
+    name: 'Delivery to Main Office',
+    type: 'Delivery',
+    address: '123 Main St, New York, NY',
+    latitude: 40.7128,
+    longitude: -74.006,
+    contactName: 'John Smith',
+    contactPhone: '555-123-4567',
+    phone: '555-123-4567',
+    notes: 'Leave packages at the front desk. Signature required.',
+    userId: 'user1',
+    companyId: 'company1',
+    index: 0,
+    plannedArrivalTime: '10:30 AM',
+    items: [
+      {
+        id: 'item1',
+        type: AssignmentItemType.ManualReport,
+        index: 0,
+        status: 'initial',
+        isOptional: false,
+        isHidden: false,
+        isCertificate: false,
+        assignmentId: '1',
+        companyId: 'company1',
+        form: [
+          {
+            key: 'deliveryConfirmation',
+            label: 'Delivery Confirmation',
+            type: 'TEXT',
+            editable: true,
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: '2',
+    name: 'Pickup from Warehouse',
+    type: 'Pickup',
+    address: '456 Warehouse Ave, Brooklyn, NY',
+    latitude: 40.6782,
+    longitude: -73.9442,
+    dockingPoint: 'Dock B',
+    notes: 'Pickup 3 pallets of merchandise. Check for damages before loading.',
+    userId: 'user1',
+    companyId: 'company1',
+    index: 1,
+    plannedArrivalTime: '1:15 PM',
+    items: [
+      {
+        id: 'item2',
+        type: AssignmentItemType.Photo,
+        index: 0,
+        status: 'initial',
+        isOptional: false,
+        isHidden: false,
+        isCertificate: false,
+        assignmentId: '2',
+        companyId: 'company1',
+        form: [],
+      },
+      {
+        id: 'item3',
+        type: AssignmentItemType.ManualReport,
+        index: 1,
+        status: 'initial',
+        isOptional: false,
+        isHidden: false,
+        isCertificate: false,
+        assignmentId: '2',
+        companyId: 'company1',
+        form: [
+          {
+            key: 'palletCount',
+            label: 'Pallet Count',
+            type: 'NUMBER',
+            editable: true,
+            required: true,
+          },
+          {
+            key: 'damageReport',
+            label: 'Damage Report',
+            type: 'TEXT_AREA',
+            editable: true,
+            required: false,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: '3',
+    name: 'Equipment Installation',
+    type: 'Service',
+    address: '789 Tech Blvd, Queens, NY',
+    latitude: 40.7282,
+    longitude: -73.7949,
+    contactName: 'Sarah Johnson',
+    contactPhone: '555-987-6543',
+    phone: '555-987-6543',
+    notes:
+      'Install new router and configure network. Customer will provide access code.',
+    userId: 'user1',
+    companyId: 'company1',
+    index: 2,
+    plannedArrivalTime: '3:00 PM',
+    items: [
+      {
+        id: 'item4',
+        type: AssignmentItemType.Photo,
+        index: 0,
+        status: 'initial',
+        isOptional: false,
+        isHidden: false,
+        isCertificate: false,
+        assignmentId: '3',
+        companyId: 'company1',
+        form: [],
+      },
+      {
+        id: 'item5',
+        type: AssignmentItemType.ManualReport,
+        index: 1,
+        status: 'initial',
+        isOptional: false,
+        isHidden: false,
+        isCertificate: false,
+        assignmentId: '3',
+        companyId: 'company1',
+        form: [
+          {
+            key: 'installationComplete',
+            label: 'Installation Complete',
+            type: 'CHECKBOX',
+            editable: true,
+            required: true,
+          },
+          {
+            key: 'networkSpeed',
+            label: 'Network Speed (Mbps)',
+            type: 'NUMBER',
+            editable: true,
+            required: true,
+          },
+          {
+            key: 'additionalNotes',
+            label: 'Additional Notes',
+            type: 'TEXT_AREA',
+            editable: true,
+            required: false,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: '4',
+    name: 'Maintenance Check',
+    type: 'Maintenance',
+    address: '321 Service Rd, Staten Island, NY',
+    latitude: 40.5795,
+    longitude: -74.1502,
+    contactName: 'Mike Rodriguez',
+    contactPhone: '555-456-7890',
+    phone: '555-456-7890',
+    notes: 'Quarterly HVAC maintenance. Check filters and coolant levels.',
+    userId: 'user1',
+    companyId: 'company1',
+    index: 3,
+    plannedArrivalTime: '4:45 PM',
+    items: [
+      {
+        id: 'item6',
+        type: AssignmentItemType.ManualReport,
+        index: 0,
+        status: 'initial',
+        isOptional: false,
+        isHidden: false,
+        isCertificate: false,
+        assignmentId: '4',
+        companyId: 'company1',
+        form: [
+          {
+            key: 'filterReplaced',
+            label: 'Filter Replaced',
+            type: 'CHECKBOX',
+            editable: true,
+            required: true,
+          },
+          {
+            key: 'coolantLevel',
+            label: 'Coolant Level',
+            type: 'TEXT',
+            editable: true,
+            required: true,
+          },
+          {
+            key: 'systemPerformance',
+            label: 'System Performance Rating (1-10)',
+            type: 'NUMBER',
+            editable: true,
+            required: true,
+          },
+        ],
+      },
+      {
+        id: 'item7',
+        type: AssignmentItemType.Photo,
+        index: 1,
+        status: 'initial',
+        isOptional: false,
+        isHidden: false,
+        isCertificate: false,
+        assignmentId: '4',
+        companyId: 'company1',
+        form: [],
+      },
+    ],
+  },
+];
 
 export default function HomeScreen() {
-  const router = useRouter();
-  const { currentRoute, assignments, setCurrentRoute, setAssignments } =
-    useRouteStore();
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [assignments] = useState<ClientAssignment[]>(mockAssignments);
 
-  useEffect(() => {
-    // Mock route data instead of fetching from service
-    const mockRoute: Route = {
-      id: 'route-123',
-      driverId: 'driver-456',
-      date: new Date().toISOString(),
-      status: 'in-progress',
-      assignments: ['assign-1', 'assign-2', 'assign-3', 'assign-4'],
-    };
+  // Get the WazeService from the container
+  let wazeService: IWazeService | undefined;
+  try {
+    const container = getContainer();
+    wazeService = container.get<IWazeService>(WAZE_SERVICE);
+  } catch (error) {
+    console.error('Error getting WazeService:', error);
+  }
 
-    // Mock assignment data
-    const mockAssignments: Assignment[] = [
-      {
-        id: 'assign-1',
-        clientId: 'client-789',
-        title: 'Delivery to Main Office',
-        description: 'Deliver package to the main office reception desk',
-        location: { latitude: 37.7749, longitude: -122.4194 },
-        status: 'completed',
-        tasks: [
-          {
-            id: 'task-1',
-            title: 'Signature Collection',
-            description: 'Get signature from recipient',
-            status: 'completed',
-            requiredPhotos: 0,
-            formFields: [],
-          },
-        ],
-        scheduledTime: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
-      },
-      {
-        id: 'assign-2',
-        clientId: 'client-789',
-        title: 'Pickup from Warehouse',
-        description: 'Collect packages from warehouse loading dock',
-        location: { latitude: 37.7833, longitude: -122.4167 },
-        status: 'in-progress',
-        tasks: [
-          {
-            id: 'task-2',
-            title: 'Package Verification',
-            description: 'Verify package contents match manifest',
-            status: 'in-progress',
-            requiredPhotos: 1,
-            formFields: [],
-          },
-        ],
-        scheduledTime: new Date().toISOString(), // now
-      },
-      {
-        id: 'assign-3',
-        clientId: 'client-789',
-        title: 'Equipment Installation',
-        description: 'Install new router and configure network',
-        location: { latitude: 37.7694, longitude: -122.4862 },
-        status: 'pending',
-        tasks: [
-          {
-            id: 'task-3',
-            title: 'Equipment Setup',
-            description: 'Install and test new equipment',
-            status: 'pending',
-            requiredPhotos: 2,
-            formFields: [],
-          },
-        ],
-        scheduledTime: new Date(Date.now() + 3600000).toISOString(), // 1 hour from now
-      },
-      {
-        id: 'assign-4',
-        clientId: 'client-789',
-        title: 'Maintenance Check',
-        description: 'Perform routine maintenance on HVAC system',
-        location: { latitude: 37.7835, longitude: -122.4256 },
-        status: 'pending',
-        tasks: [
-          {
-            id: 'task-4',
-            title: 'System Inspection',
-            description: 'Check all components and record readings',
-            status: 'pending',
-            requiredPhotos: 3,
-            formFields: [],
-          },
-        ],
-        scheduledTime: new Date(Date.now() + 7200000).toISOString(), // 2 hours from now
-      },
-    ];
-
-    // Set the mock data in state
-    setCurrentRoute(mockRoute);
-    setAssignments(mockAssignments);
-  }, []);
-
-  const getCompletionStatus = () => {
-    if (!assignments.length) return '0%';
-
-    const completed = assignments.filter(
-      (a) => a.status === 'completed',
-    ).length;
-    return `${Math.round((completed / assignments.length) * 100)}%`;
+  const handleToggleExpand = (id: string) => {
+    setExpandedId(expandedId === id ? null : id);
   };
 
-  const navigateToAssignments = () => {
-    router.push('/assignments');
+  const handleConfirmAssignment = (assignment: ClientAssignment) => {
+    console.log('Assignment confirmed:', assignment.id);
+    // In a real app, this would update the assignment status
+    // and potentially navigate to the next screen
   };
 
-  if (!currentRoute) {
+  if (!assignments.length) {
     return (
-      <View style={styles.container}>
-        <Text>Loading route information...</Text>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>No assignments found</Text>
+        </View>
+      </SafeAreaView>
     );
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Today's Route</Text>
-        <Text style={styles.date}>{formatDate(currentRoute.date)}</Text>
+        <Text style={styles.title}>Today's Assignments</Text>
       </View>
-
-      <Card style={styles.summaryCard}>
-        <View style={styles.summaryRow}>
-          <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabel}>Assignments</Text>
-            <Text style={styles.summaryValue}>{assignments.length}</Text>
-          </View>
-          <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabel}>Completion</Text>
-            <Text style={styles.summaryValue}>{getCompletionStatus()}</Text>
-          </View>
-          <View style={styles.summaryItem}>
-            <Text style={styles.summaryLabel}>Status</Text>
-            <Text style={[styles.summaryValue, { color: '#17a2b8' }]}>
-              {currentRoute.status.charAt(0).toUpperCase() +
-                currentRoute.status.slice(1)}
-            </Text>
-          </View>
-        </View>
-      </Card>
-
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Recent Assignments</Text>
-        {assignments.slice(0, 3).map((assignment) => (
-          <Card key={assignment.id} style={styles.assignmentCard}>
-            <Text style={styles.assignmentTitle}>{assignment.title}</Text>
-            <Text style={styles.assignmentDescription}>
-              {assignment.description}
-            </Text>
-            <View style={styles.assignmentFooter}>
-              <Text style={styles.assignmentTime}>
-                {getRelativeTime(assignment.scheduledTime)}
-              </Text>
-              <View
-                style={[
-                  styles.statusBadge,
-                  {
-                    backgroundColor:
-                      assignment.status === 'completed'
-                        ? '#28a745'
-                        : assignment.status === 'in-progress'
-                          ? '#17a2b8'
-                          : '#ffc107',
-                  },
-                ]}
-              >
-                <Text style={styles.statusText}>
-                  {assignment.status === 'completed'
-                    ? 'Completed'
-                    : assignment.status === 'in-progress'
-                      ? 'In Progress'
-                      : 'Pending'}
-                </Text>
-              </View>
-            </View>
-          </Card>
-        ))}
-      </View>
-
-      <Button
-        title="View All Assignments"
-        onPress={navigateToAssignments}
-        style={styles.viewAllButton}
+      <FlatList
+        data={assignments}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <AssignmentItem
+            assignment={item}
+            expanded={expandedId === item.id}
+            onToggleExpand={() => handleToggleExpand(item.id)}
+            onConfirm={handleConfirmAssignment}
+            wazeService={wazeService}
+          />
+        )}
+        contentContainerStyle={styles.listContent}
       />
-    </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -209,80 +295,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
-    padding: 16,
   },
   header: {
-    marginBottom: 16,
+    padding: 16,
+    marginBottom: 8,
   },
   title: {
     fontSize: 24,
     fontWeight: '700',
   },
-  date: {
-    fontSize: 16,
-    color: '#6c757d',
-    marginTop: 4,
+  listContent: {
+    padding: 16,
+    paddingTop: 0,
   },
-  summaryCard: {
-    marginBottom: 24,
-  },
-  summaryRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  summaryItem: {
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  summaryLabel: {
-    fontSize: 14,
-    color: '#6c757d',
-    marginBottom: 4,
-  },
-  summaryValue: {
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  section: {
-    marginBottom: 24,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginBottom: 12,
-  },
-  assignmentCard: {
-    marginBottom: 12,
-  },
-  assignmentTitle: {
+  emptyText: {
     fontSize: 16,
-    fontWeight: '600',
-    marginBottom: 4,
-  },
-  assignmentDescription: {
-    fontSize: 14,
     color: '#6c757d',
-    marginBottom: 12,
-  },
-  assignmentFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  assignmentTime: {
-    fontSize: 12,
-    color: '#6c757d',
-  },
-  statusBadge: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4,
-  },
-  statusText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#ffffff',
-  },
-  viewAllButton: {
-    marginBottom: 24,
   },
 });
