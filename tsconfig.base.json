@@ -1,0 +1,24 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@driver-assignment-tracker/core": ["packages/core/index.ts"],
+      "@driver-assignment-tracker/core/*": ["packages/core/*"],
+      "@driver-assignment-tracker/shared": ["packages/shared/index.ts"],
+      "@driver-assignment-tracker/shared/*": ["packages/shared/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
