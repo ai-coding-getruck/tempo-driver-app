@@ -5,3 +5,4 @@ export * from './TaskItem';
 export * from './PhotoUpload';
 export * from './FormField';
 export * from './AssignmentItem';
+export * from './ImagePickerDialog';

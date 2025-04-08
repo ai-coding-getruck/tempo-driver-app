@@ -16,6 +16,10 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name="index" options={{ title: 'Route Overview' }} />
       <Stack.Screen name="assignments" options={{ title: 'Assignments' }} />
+      <Stack.Screen
+        name="assignments/[assignmentId]"
+        options={{ title: 'Assignment Details' }}
+      />
       <Stack.Screen name="task/[id]" options={{ title: 'Task Details' }} />
     </Stack>
   );

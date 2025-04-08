@@ -7,6 +7,7 @@ import {
   Linking,
   Platform,
 } from 'react-native';
+import { useRouter } from 'expo-router';
 import {
   IWazeService,
   ClientAssignment,
@@ -28,6 +29,7 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
   onConfirm,
   wazeService,
 }) => {
+  const router = useRouter();
   const handleWazeNavigation = async () => {
     if (!wazeService) return;
 
@@ -65,7 +67,7 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
     const hasManualReport = assignment.items.some(
       (item) =>
         item.type === AssignmentItemType.ManualReport &&
-        item.status === 'initial'
+        item.status === 'initial',
     );
 
     if (hasManualReport) {
@@ -73,6 +75,10 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
       console.log('Submitting assignment:', assignment.id);
     }
 
+    // Navigate to the assignment details screen
+    router.push(`/assignments/${assignment.id}`);
+
+    // Also call the original onConfirm callback
     onConfirm(assignment);
   };
 
