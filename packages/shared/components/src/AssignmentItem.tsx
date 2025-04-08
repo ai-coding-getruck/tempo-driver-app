@@ -8,10 +8,10 @@ import {
   Platform,
 } from 'react-native';
 import {
+  IWazeService,
   ClientAssignment,
   AssignmentItemType,
-} from '../../../packages/core/services/types';
-import { IWazeService } from '../../../packages/core/services/waze.service';
+} from '@core/services';
 
 interface AssignmentItemProps {
   assignment: ClientAssignment;
@@ -65,7 +65,7 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
     const hasManualReport = assignment.items.some(
       (item) =>
         item.type === AssignmentItemType.ManualReport &&
-        item.status === 'initial',
+        item.status === 'initial'
     );
 
     if (hasManualReport) {

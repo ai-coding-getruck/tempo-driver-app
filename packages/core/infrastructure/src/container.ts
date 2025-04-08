@@ -1,10 +1,6 @@
 import { Container } from "inversify";
-import { RouteService } from "../services/routeService";
 import { StorageService } from "./storageService";
-import { ApiClient } from "../services/apiClient";
-import { GeolocationService } from "../services/geolocation/geolocation.service";
-import { IGeolocationService } from "../services/geolocation/geolocation.interface";
-import { WazeService, IWazeService } from "../services/waze.service";
+import { WazeService, IWazeService, IGeolocationService, GeolocationService, ApiClient, RouteService } from "@core/services";
 import { useEffect, useState } from "react";
 
 // Service identifiers

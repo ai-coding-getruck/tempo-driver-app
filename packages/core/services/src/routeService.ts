@@ -1,10 +1,10 @@
 import { injectable } from "inversify";
 import { Assignment, Route, Task } from "./types";
-import { StorageService } from "../infrastructure/storageService";
+import { STORAGE_SERVICE, StorageService, useInject } from "@core/infrastructure";
 
 @injectable()
 export class RouteService {
-  constructor(private storageService: StorageService) {}
+  private storageService: StorageService = useInject<StorageService>(STORAGE_SERVICE);
 
   async getCurrentRoute(): Promise<Route | null> {
     try {

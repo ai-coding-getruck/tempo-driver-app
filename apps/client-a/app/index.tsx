@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import { getContainer } from './_layout';
 import { RouteService } from '@core/services';
 import { useRouteStore } from '@core/hooks';
-import { Button, Card } from '../../../packages/shared/components';
+import { Button, Card } from '../../../packages/shared/components/src';
 import {
   formatDate,
   getRelativeTime,

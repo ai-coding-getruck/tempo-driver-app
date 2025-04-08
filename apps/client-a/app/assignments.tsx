@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
-import { AssignmentItem } from 'shared/components';
+import { AssignmentItem } from '@shared/components';
 import { ClientAssignment, AssignmentItemType } from '@core/services';
 import { getContainer } from './_layout';
 import { WAZE_SERVICE } from '@core/infrastructure';

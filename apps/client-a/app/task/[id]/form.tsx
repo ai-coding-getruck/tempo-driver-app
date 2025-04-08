@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useForm } from 'react-hook-form';
 import { useRouteStore } from '@core/hooks';
-import { Button, FormField } from '../../../../../packages/shared/components';
+import { Button, FormField } from '../../../../../packages/shared/components/src';
 import { getContainer } from '../../_layout';
 import { RouteService } from '@core/services';
 

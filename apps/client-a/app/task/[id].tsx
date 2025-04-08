@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useRouteStore } from '@core/hooks';
-import { Button, Card } from '../../../../packages/shared/components';
+import { Button, Card } from '../../../../packages/shared/components/src';
 
 export default function TaskDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
