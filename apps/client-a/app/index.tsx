@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { getContainer } from './_layout';
-import { RouteService } from '@core/services';
+import { RouteService, Route, Assignment } from '@core/services';
 import { useRouteStore } from '@core/hooks';
 import { Button, Card } from '../../../packages/shared/components/src';
 import {
@@ -16,24 +16,98 @@ export default function HomeScreen() {
     useRouteStore();
 
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const container = getContainer();
-        const routeService = container.get(RouteService);
-
-        const route = await routeService.getCurrentRoute();
-        if (route) {
-          setCurrentRoute(route);
-
-          const assignmentList = await routeService.getAssignments(route.id);
-          setAssignments(assignmentList);
-        }
-      } catch (error) {
-        console.error('Error loading data:', error);
-      }
+    // Mock route data instead of fetching from service
+    const mockRoute: Route = {
+      id: 'route-123',
+      driverId: 'driver-456',
+      date: new Date().toISOString(),
+      status: 'in-progress',
+      assignments: ['assign-1', 'assign-2', 'assign-3', 'assign-4'],
     };
 
-    loadData();
+    // Mock assignment data
+    const mockAssignments: Assignment[] = [
+      {
+        id: 'assign-1',
+        clientId: 'client-789',
+        title: 'Delivery to Main Office',
+        description: 'Deliver package to the main office reception desk',
+        location: { latitude: 37.7749, longitude: -122.4194 },
+        status: 'completed',
+        tasks: [
+          {
+            id: 'task-1',
+            title: 'Signature Collection',
+            description: 'Get signature from recipient',
+            status: 'completed',
+            requiredPhotos: 0,
+            formFields: [],
+          },
+        ],
+        scheduledTime: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
+      },
+      {
+        id: 'assign-2',
+        clientId: 'client-789',
+        title: 'Pickup from Warehouse',
+        description: 'Collect packages from warehouse loading dock',
+        location: { latitude: 37.7833, longitude: -122.4167 },
+        status: 'in-progress',
+        tasks: [
+          {
+            id: 'task-2',
+            title: 'Package Verification',
+            description: 'Verify package contents match manifest',
+            status: 'in-progress',
+            requiredPhotos: 1,
+            formFields: [],
+          },
+        ],
+        scheduledTime: new Date().toISOString(), // now
+      },
+      {
+        id: 'assign-3',
+        clientId: 'client-789',
+        title: 'Equipment Installation',
+        description: 'Install new router and configure network',
+        location: { latitude: 37.7694, longitude: -122.4862 },
+        status: 'pending',
+        tasks: [
+          {
+            id: 'task-3',
+            title: 'Equipment Setup',
+            description: 'Install and test new equipment',
+            status: 'pending',
+            requiredPhotos: 2,
+            formFields: [],
+          },
+        ],
+        scheduledTime: new Date(Date.now() + 3600000).toISOString(), // 1 hour from now
+      },
+      {
+        id: 'assign-4',
+        clientId: 'client-789',
+        title: 'Maintenance Check',
+        description: 'Perform routine maintenance on HVAC system',
+        location: { latitude: 37.7835, longitude: -122.4256 },
+        status: 'pending',
+        tasks: [
+          {
+            id: 'task-4',
+            title: 'System Inspection',
+            description: 'Check all components and record readings',
+            status: 'pending',
+            requiredPhotos: 3,
+            formFields: [],
+          },
+        ],
+        scheduledTime: new Date(Date.now() + 7200000).toISOString(), // 2 hours from now
+      },
+    ];
+
+    // Set the mock data in state
+    setCurrentRoute(mockRoute);
+    setAssignments(mockAssignments);
   }, []);
 
   const getCompletionStatus = () => {
