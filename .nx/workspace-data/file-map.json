@@ -41,80 +41,6 @@
     }
   ],
   "fileMap": {
-    "nonProjectFiles": [
-      {
-        "file": ".gitignore",
-        "hash": "5214590653110725560"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "16884713733442577066"
-      },
-      {
-        "file": "README.md",
-        "hash": "11460966644741158790"
-      },
-      {
-        "file": "babel.config.json",
-        "hash": "5546405625092116747"
-      },
-      {
-        "file": "index.html",
-        "hash": "14370778667228704554"
-      },
-      {
-        "file": "nx.json",
-        "hash": "5208649834018110958"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "773141448858210932"
-      },
-      {
-        "file": "package.json",
-        "hash": "16404860717721300025"
-      },
-      {
-        "file": "src/App.tsx",
-        "hash": "10981461371302628362"
-      },
-      {
-        "file": "src/components/Home.tsx",
-        "hash": "17613214762529690938"
-      },
-      {
-        "file": "src/main.tsx",
-        "hash": "17686412780411479307"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "18132073024976155609"
-      },
-      {
-        "file": "tsconfig.json",
-        "hash": "8016096147118849494"
-      },
-      {
-        "file": "tsconfig.node.json",
-        "hash": "8586866767247417612"
-      },
-      {
-        "file": "vite.config.ts",
-        "hash": "16988113734341980739"
-      },
-      {
-        "file": "yarn.lock",
-        "hash": "11207494007798313520"
-      }
-    ],
     "projectFileMap": {
       "client-b": [
         {
@@ -346,6 +272,52 @@
           "hash": "18388439864924501195"
         }
       ],
+      "core": [
+        {
+          "file": "packages/core/hooks/index.ts",
+          "hash": "3998380116978020405"
+        },
+        {
+          "file": "packages/core/hooks/useRouteStore.ts",
+          "hash": "11561786509670269423"
+        },
+        {
+          "file": "packages/core/infrastructure/container.ts",
+          "hash": "16445456393892034128"
+        },
+        {
+          "file": "packages/core/infrastructure/index.ts",
+          "hash": "7782996518914542884"
+        },
+        {
+          "file": "packages/core/infrastructure/storageService.ts",
+          "hash": "11998209841778904674"
+        },
+        {
+          "file": "packages/core/package-lock.json",
+          "hash": "5459105989757645599"
+        },
+        {
+          "file": "packages/core/package.json",
+          "hash": "11428555164690567971"
+        },
+        {
+          "file": "packages/core/services/index.ts",
+          "hash": "7371232147807113255"
+        },
+        {
+          "file": "packages/core/services/routeService.ts",
+          "hash": "18220364066899873292"
+        },
+        {
+          "file": "packages/core/services/types.ts",
+          "hash": "2939204498774774695"
+        },
+        {
+          "file": "packages/core/tsconfig.json",
+          "hash": "15921540424176682251"
+        }
+      ],
       "shared": [
         {
           "file": "packages/shared/components/Button.tsx",
@@ -416,6 +388,84 @@
           "hash": "11280039298649604013"
         }
       ]
-    }
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".gitignore",
+        "hash": "5214590653110725560"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".swc/plugins/v7_linux_x86_64_0.104.8/058f0dc63104ed81272695b2a64d1b5ec485f72cf057c0d026c6ed63baa514ae",
+        "hash": "1297916077272886725"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "16884713733442577066"
+      },
+      {
+        "file": "README.md",
+        "hash": "11460966644741158790"
+      },
+      {
+        "file": "babel.config.json",
+        "hash": "5546405625092116747"
+      },
+      {
+        "file": "index.html",
+        "hash": "14370778667228704554"
+      },
+      {
+        "file": "nx.json",
+        "hash": "5208649834018110958"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "773141448858210932"
+      },
+      {
+        "file": "package.json",
+        "hash": "5316449298091147500"
+      },
+      {
+        "file": "src/App.tsx",
+        "hash": "10981461371302628362"
+      },
+      {
+        "file": "src/components/Home.tsx",
+        "hash": "17613214762529690938"
+      },
+      {
+        "file": "src/main.tsx",
+        "hash": "17686412780411479307"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "18132073024976155609"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "8016096147118849494"
+      },
+      {
+        "file": "tsconfig.node.json",
+        "hash": "8586866767247417612"
+      },
+      {
+        "file": "vite.config.ts",
+        "hash": "16988113734341980739"
+      },
+      {
+        "file": "yarn.lock",
+        "hash": "2403961462624614145"
+      }
+    ]
   }
 }

@@ -42,6 +42,7 @@
     "nx": "20.7.1",
     "prettier": "^2.6.2",
     "react-test-renderer": "~18.3.1",
+    "tempo-devtools": "^2.0.99",
     "tslib": "^2.3.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.19.0"
