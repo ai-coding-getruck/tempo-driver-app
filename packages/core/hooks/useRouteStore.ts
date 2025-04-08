@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Assignment, Route, Task } from "../services/types";
+import { Assignment, Route, Task } from "@core/services";
 
 interface RouteState {
   currentRoute: Route | null;

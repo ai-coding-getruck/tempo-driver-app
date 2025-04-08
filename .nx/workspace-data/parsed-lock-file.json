@@ -7290,6 +7290,24 @@
         "hash": "sha512-eAP5hyBgC8gafFtprsz0HMaB795qZfgJWqTmU0NfbSin1wUuVySFMEPMOrTkTgmazU73v4Cb4x7p86jY1XXYUw=="
       }
     },
+    "npm:expo-image-loader": {
+      "type": "npm",
+      "name": "npm:expo-image-loader",
+      "data": {
+        "version": "5.0.0",
+        "packageName": "expo-image-loader",
+        "hash": "sha512-Eg+5FHtyzv3Jjw9dHwu2pWy4xjf8fu3V0Asyy42kO+t/FbvW/vjUixpTjPtgKQLQh+2/9Nk4JjFDV6FwCnF2ZA=="
+      }
+    },
+    "npm:expo-image-picker": {
+      "type": "npm",
+      "name": "npm:expo-image-picker",
+      "data": {
+        "version": "16.0.6",
+        "packageName": "expo-image-picker",
+        "hash": "sha512-HN4xZirFjsFDIsWFb12AZh19fRzuvZjj2ll17cGr19VNRP06S/VPQU3Tdccn5vwUzQhOBlLu704CnNm278boiQ=="
+      }
+    },
     "npm:expo-keep-awake": {
       "type": "npm",
       "name": "npm:expo-keep-awake",
@@ -31884,6 +31902,11 @@
     {
       "source": "npm:expo-font",
       "target": "npm:fontfaceobserver",
+      "type": "static"
+    },
+    {
+      "source": "npm:expo-image-picker",
+      "target": "npm:expo-image-loader",
       "type": "static"
     },
     {

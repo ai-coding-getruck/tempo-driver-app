@@ -13,6 +13,7 @@
     "@core/infrastructure": "^1.0.0",
     "@core/services": "^1.0.0",
     "@shared/components": "^1.0.0",
+    "@shared/utils": "^1.0.0",
     "expo": "~52.0.43",
     "expo-constants": "^17.0.8",
     "expo-image-picker": "^16.0.6",

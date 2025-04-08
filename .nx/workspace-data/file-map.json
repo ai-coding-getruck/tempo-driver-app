@@ -43,90 +43,186 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "babel.config.json",
-        "hash": "5546405625092116747"
-      },
-      {
-        "file": "src/App.tsx",
-        "hash": "10981461371302628362"
-      },
-      {
-        "file": "vite.config.ts",
-        "hash": "16988113734341980739"
+        "file": ".gitignore",
+        "hash": "5362727240389241676"
       },
       {
         "file": ".prettierignore",
         "hash": "14688272390704683536"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "16884713733442577066"
-      },
-      {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
-      },
-      {
-        "file": "nx.json",
-        "hash": "5208649834018110958"
       },
       {
         "file": ".swc/plugins/v7_linux_x86_64_0.104.8/058f0dc63104ed81272695b2a64d1b5ec485f72cf057c0d026c6ed63baa514ae",
         "hash": "1297916077272886725"
       },
       {
-        "file": "yarn.lock",
-        "hash": "9477283165807642125"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "5362727240389241676"
-      },
-      {
-        "file": "tsconfig.node.json",
-        "hash": "8586866767247417612"
+        "file": ".vscode/extensions.json",
+        "hash": "16884713733442577066"
       },
       {
         "file": "README.md",
         "hash": "11460966644741158790"
       },
       {
-        "file": "src/main.tsx",
-        "hash": "17686412780411479307"
+        "file": "babel.config.json",
+        "hash": "5546405625092116747"
       },
       {
         "file": "index.html",
         "hash": "14370778667228704554"
       },
       {
+        "file": "nx.json",
+        "hash": "5208649834018110958"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "2706602789291636573"
+      },
+      {
         "file": "package.json",
         "hash": "17423329744608791605"
       },
       {
-        "file": "package-lock.json",
-        "hash": "16967430471410180434"
-      },
-      {
-        "file": "tsconfig.json",
-        "hash": "8016096147118849494"
+        "file": "src/App.tsx",
+        "hash": "10981461371302628362"
       },
       {
         "file": "src/components/Home.tsx",
         "hash": "17613214762529690938"
       },
       {
+        "file": "src/main.tsx",
+        "hash": "17686412780411479307"
+      },
+      {
         "file": "tsconfig.base.json",
         "hash": "18132073024976155609"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "8016096147118849494"
+      },
+      {
+        "file": "tsconfig.node.json",
+        "hash": "8586866767247417612"
+      },
+      {
+        "file": "vite.config.ts",
+        "hash": "16988113734341980739"
+      },
+      {
+        "file": "yarn.lock",
+        "hash": "7482347467112684089"
       }
     ],
     "projectFileMap": {
-      "client-b": [
+      "@core/services": [
         {
-          "file": "apps/client-b/.gitignore",
+          "file": "packages/core/services/index.ts",
+          "hash": "1141359821207066816"
+        },
+        {
+          "file": "packages/core/services/package-lock.json",
+          "hash": "1579380660067952604"
+        },
+        {
+          "file": "packages/core/services/package.json",
+          "hash": "3549100870721728067",
+          "deps": [
+            "@core/infrastructure",
+            "npm:axios",
+            "npm:dayjs",
+            "npm:inversify",
+            "npm:reflect-metadata"
+          ]
+        },
+        {
+          "file": "packages/core/services/project.json",
+          "hash": "11264256436340582567"
+        },
+        {
+          "file": "packages/core/services/src/apiClient.ts",
+          "hash": "5012566737293469056",
+          "deps": [
+            "npm:axios",
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/core/services/src/geolocation/geolocation.interface.ts",
+          "hash": "3867778783035131909"
+        },
+        {
+          "file": "packages/core/services/src/geolocation/geolocation.service.ts",
+          "hash": "6681915938669356987",
+          "deps": [
+            "npm:inversify"
+          ]
+        },
+        {
+          "file": "packages/core/services/src/index.ts",
+          "hash": "6204357006575146795"
+        },
+        {
+          "file": "packages/core/services/src/routeService.ts",
+          "hash": "5060687508056671619",
+          "deps": [
+            "npm:inversify",
+            "@core/infrastructure"
+          ]
+        },
+        {
+          "file": "packages/core/services/src/types.ts",
+          "hash": "16171395144590213790"
+        },
+        {
+          "file": "packages/core/services/src/waze.service.ts",
+          "hash": "16648407789535658070",
+          "deps": [
+            "npm:inversify"
+          ]
+        }
+      ],
+      "@shared/utils": [
+        {
+          "file": "packages/shared/utils/package.json",
+          "hash": "5909040186783085482",
+          "deps": [
+            "@core/services",
+            "npm:dayjs"
+          ]
+        },
+        {
+          "file": "packages/shared/utils/project.json",
+          "hash": "1881494922771723455"
+        },
+        {
+          "file": "packages/shared/utils/src/dateUtils.ts",
+          "hash": "13348816755371267055",
+          "deps": [
+            "npm:dayjs"
+          ]
+        },
+        {
+          "file": "packages/shared/utils/src/index.ts",
+          "hash": "12347396200465134928"
+        },
+        {
+          "file": "packages/shared/utils/src/validationUtils.ts",
+          "hash": "11280039298649604013"
+        }
+      ],
+      "client-a": [
+        {
+          "file": "apps/client-a/.gitignore",
           "hash": "9295072133346375269"
         },
         {
-          "file": "apps/client-b/App.tsx",
+          "file": "apps/client-a/App.tsx",
           "hash": "13988327922907897129",
           "deps": [
             "npm:expo-status-bar",
@@ -134,12 +230,12 @@
           ]
         },
         {
-          "file": "apps/client-b/app.json",
-          "hash": "23892072109976899"
+          "file": "apps/client-a/app.json",
+          "hash": "8843102757919784683"
         },
         {
-          "file": "apps/client-b/app/_layout.tsx",
-          "hash": "9623743640062310906",
+          "file": "apps/client-a/app/_layout.tsx",
+          "hash": "9128466919076953063",
           "deps": [
             "npm:expo-router",
             "npm:react",
@@ -148,170 +244,124 @@
           ]
         },
         {
-          "file": "apps/client-b/app/assignments.tsx",
-          "hash": "10915397549549316846",
+          "file": "apps/client-a/app/assignments.tsx",
+          "hash": "5295188016490702372",
           "deps": [
             "npm:react",
             "npm:react-native@0.76.9",
-            "npm:expo-router",
-            "@core/hooks",
-            "shared"
+            "npm:shared",
+            "@core/services",
+            "@core/infrastructure"
           ]
         },
         {
-          "file": "apps/client-b/app/index.tsx",
-          "hash": "10804364817863153252",
+          "file": "apps/client-a/app/assignments/[assignmentId].tsx",
+          "hash": "6224817990227258298",
           "deps": [
             "npm:react",
             "npm:react-native@0.76.9",
             "npm:expo-router",
             "@core/services",
-            "@core/hooks",
-            "shared"
+            "@shared/components",
+            "npm:react-hook-form"
           ]
         },
         {
-          "file": "apps/client-b/app/task/[id].tsx",
-          "hash": "12396580508951051649",
+          "file": "apps/client-a/app/index.tsx",
+          "hash": "11454878619003134331",
+          "deps": [
+            "npm:react",
+            "npm:react-native@0.76.9",
+            "@core/infrastructure",
+            "@core/services",
+            "npm:shared"
+          ]
+        },
+        {
+          "file": "apps/client-a/app/task/[id].tsx",
+          "hash": "13434572965079897850",
           "deps": [
             "npm:react",
             "npm:react-native@0.76.9",
             "npm:expo-router",
             "@core/hooks",
-            "shared"
+            "@shared/components"
           ]
         },
         {
-          "file": "apps/client-b/app/task/[id]/form.tsx",
-          "hash": "9239189312169828589",
+          "file": "apps/client-a/app/task/[id]/form.tsx",
+          "hash": "18031831177437922612",
           "deps": [
             "npm:react",
             "npm:react-native@0.76.9",
             "npm:expo-router",
             "npm:react-hook-form",
             "@core/hooks",
-            "shared",
+            "@shared/components",
             "@core/services"
           ]
         },
         {
-          "file": "apps/client-b/assets/adaptive-icon.png",
+          "file": "apps/client-a/assets/adaptive-icon.png",
           "hash": "16102135492459408350"
         },
         {
-          "file": "apps/client-b/assets/favicon.png",
+          "file": "apps/client-a/assets/favicon.png",
           "hash": "10556792184362654649"
         },
         {
-          "file": "apps/client-b/assets/icon.png",
+          "file": "apps/client-a/assets/icon.png",
           "hash": "14252482080276080187"
         },
         {
-          "file": "apps/client-b/assets/splash-icon.png",
+          "file": "apps/client-a/assets/splash-icon.png",
           "hash": "16102135492459408350"
         },
         {
-          "file": "apps/client-b/index.ts",
+          "file": "apps/client-a/index.ts",
           "hash": "16528171701554453975",
           "deps": [
             "npm:expo"
           ]
         },
         {
-          "file": "apps/client-b/package-lock.json",
-          "hash": "4927507211943066337"
+          "file": "apps/client-a/package-lock.json",
+          "hash": "8589217263403922043"
         },
         {
-          "file": "apps/client-b/package.json",
-          "hash": "6641659779862987363",
+          "file": "apps/client-a/package.json",
+          "hash": "2285466053979666015",
           "deps": [
             "npm:@babel/core",
             "npm:@types/react",
             "npm:typescript",
+            "@core/hooks",
+            "@core/infrastructure",
+            "@core/services",
+            "@shared/components",
+            "@shared/utils",
             "npm:expo",
             "npm:expo-constants",
+            "npm:expo-image-picker",
             "npm:expo-linking",
             "npm:expo-router",
             "npm:expo-status-bar",
+            "npm:inversify",
             "npm:react",
+            "npm:react-hook-form",
             "npm:react-native@0.76.9",
             "npm:react-native-safe-area-context",
-            "npm:react-native-screens"
+            "npm:react-native-screens",
+            "npm:shared"
           ]
         },
         {
-          "file": "apps/client-b/tsconfig.json",
-          "hash": "18388439864924501195"
-        }
-      ],
-      "@shared/components": [
-        {
-          "file": "packages/shared/components/package.json",
-          "hash": "8257366663817563419",
-          "deps": [
-            "@core/services",
-            "npm:inversify",
-            "npm:reflect-metadata",
-            "npm:react-hook-form"
-          ]
+          "file": "apps/client-a/project.json",
+          "hash": "3888901530559671652"
         },
         {
-          "file": "packages/shared/components/project.json",
-          "hash": "12490412114596653253"
-        },
-        {
-          "file": "packages/shared/components/src/AssignmentItem.tsx",
-          "hash": "8211865231902757074",
-          "deps": [
-            "npm:react",
-            "npm:react-native",
-            "@core/services"
-          ]
-        },
-        {
-          "file": "packages/shared/components/src/Button.tsx",
-          "hash": "16784335535740162830",
-          "deps": [
-            "npm:react",
-            "npm:react-native"
-          ]
-        },
-        {
-          "file": "packages/shared/components/src/Card.tsx",
-          "hash": "50712182815688410",
-          "deps": [
-            "npm:react",
-            "npm:react-native"
-          ]
-        },
-        {
-          "file": "packages/shared/components/src/FormField.tsx",
-          "hash": "3049537490283976189",
-          "deps": [
-            "npm:react",
-            "npm:react-native",
-            "npm:react-hook-form"
-          ]
-        },
-        {
-          "file": "packages/shared/components/src/PhotoUpload.tsx",
-          "hash": "13615004321522350246",
-          "deps": [
-            "npm:react",
-            "npm:react-native"
-          ]
-        },
-        {
-          "file": "packages/shared/components/src/TaskItem.tsx",
-          "hash": "5530867691540082244",
-          "deps": [
-            "npm:react",
-            "npm:react-native"
-          ]
-        },
-        {
-          "file": "packages/shared/components/src/index.ts",
-          "hash": "1715446036255863461"
+          "file": "apps/client-a/tsconfig.json",
+          "hash": "4996163824179393766"
         }
       ],
       "@core/hooks": [
@@ -347,7 +397,7 @@
         },
         {
           "file": "packages/core/hooks/useRouteStore.ts",
-          "hash": "11561786509670269423",
+          "hash": "5421282139322940076",
           "deps": [
             "npm:zustand",
             "@core/services"
@@ -393,225 +443,83 @@
           ]
         }
       ],
-      "@core/services": [
+      "@shared/components": [
         {
-          "file": "packages/core/services/index.ts",
-          "hash": "1141359821207066816"
-        },
-        {
-          "file": "packages/core/services/package-lock.json",
-          "hash": "1579380660067952604"
-        },
-        {
-          "file": "packages/core/services/package.json",
-          "hash": "3549100870721728067",
+          "file": "packages/shared/components/package.json",
+          "hash": "8727207076424926903",
           "deps": [
-            "@core/infrastructure",
-            "npm:axios",
-            "npm:dayjs",
-            "npm:inversify",
-            "npm:reflect-metadata"
-          ]
-        },
-        {
-          "file": "packages/core/services/project.json",
-          "hash": "11264256436340582567"
-        },
-        {
-          "file": "packages/core/services/src/apiClient.ts",
-          "hash": "5012566737293469056",
-          "deps": [
-            "npm:axios",
-            "npm:inversify"
-          ]
-        },
-        {
-          "file": "packages/core/services/src/index.ts",
-          "hash": "6204357006575146795"
-        },
-        {
-          "file": "packages/core/services/src/routeService.ts",
-          "hash": "5060687508056671619",
-          "deps": [
-            "npm:inversify",
-            "@core/infrastructure"
-          ]
-        },
-        {
-          "file": "packages/core/services/src/types.ts",
-          "hash": "16171395144590213790"
-        },
-        {
-          "file": "packages/core/services/src/waze.service.ts",
-          "hash": "16648407789535658070",
-          "deps": [
-            "npm:inversify"
-          ]
-        }
-      ],
-      "client-a": [
-        {
-          "file": "apps/client-a/.gitignore",
-          "hash": "9295072133346375269"
-        },
-        {
-          "file": "apps/client-a/App.tsx",
-          "hash": "13988327922907897129",
-          "deps": [
-            "npm:expo-status-bar",
-            "npm:react-native@0.76.9"
-          ]
-        },
-        {
-          "file": "apps/client-a/app.json",
-          "hash": "8843102757919784683"
-        },
-        {
-          "file": "apps/client-a/app/_layout.tsx",
-          "hash": "11514461066622341527",
-          "deps": [
-            "npm:expo-router",
-            "npm:react",
-            "npm:inversify"
-          ]
-        },
-        {
-          "file": "apps/client-a/app/assignments.tsx",
-          "hash": "876701853966131328",
-          "deps": [
-            "npm:react",
-            "npm:react-native@0.76.9",
-            "@shared/components",
             "@core/services",
-            "@core/infrastructure"
-          ]
-        },
-        {
-          "file": "apps/client-a/app/index.tsx",
-          "hash": "7089103385282027416",
-          "deps": [
-            "npm:react",
-            "npm:react-native@0.76.9",
-            "npm:expo-router",
-            "@core/services",
-            "@core/hooks",
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/client-a/app/task/[id].tsx",
-          "hash": "13434572965079897850",
-          "deps": [
-            "npm:react",
-            "npm:react-native@0.76.9",
-            "npm:expo-router",
-            "@core/hooks",
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/client-a/app/task/[id]/form.tsx",
-          "hash": "18031831177437922612",
-          "deps": [
-            "npm:react",
-            "npm:react-native@0.76.9",
-            "npm:expo-router",
             "npm:react-hook-form",
-            "@core/hooks",
-            "shared",
-            "@core/services"
-          ]
-        },
-        {
-          "file": "apps/client-a/assets/adaptive-icon.png",
-          "hash": "16102135492459408350"
-        },
-        {
-          "file": "apps/client-a/assets/favicon.png",
-          "hash": "10556792184362654649"
-        },
-        {
-          "file": "apps/client-a/assets/icon.png",
-          "hash": "14252482080276080187"
-        },
-        {
-          "file": "apps/client-a/assets/splash-icon.png",
-          "hash": "16102135492459408350"
-        },
-        {
-          "file": "apps/client-a/index.ts",
-          "hash": "16528171701554453975",
-          "deps": [
-            "npm:expo"
-          ]
-        },
-        {
-          "file": "apps/client-a/package-lock.json",
-          "hash": "8589217263403922043"
-        },
-        {
-          "file": "apps/client-a/package.json",
-          "hash": "5924807304486739814",
-          "deps": [
-            "npm:@babel/core",
-            "npm:@types/react",
-            "npm:typescript",
-            "@core/hooks",
-            "@core/infrastructure",
-            "@core/services",
-            "@shared/components",
-            "npm:expo",
-            "npm:expo-constants",
-            "npm:expo-linking",
-            "npm:expo-router",
-            "npm:expo-status-bar",
-            "npm:inversify",
-            "npm:react",
-            "npm:react-native@0.76.9",
-            "npm:react-native-safe-area-context",
-            "npm:react-native-screens",
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/client-a/project.json",
-          "hash": "3888901530559671652"
-        },
-        {
-          "file": "apps/client-a/tsconfig.json",
-          "hash": "4996163824179393766"
-        }
-      ],
-      "shared": [
-        {
-          "file": "packages/shared/package-lock.json",
-          "hash": "15667354086191884433"
-        },
-        {
-          "file": "packages/shared/package.json",
-          "hash": "16542487394900266115",
-          "deps": [
-            "npm:react-hook-form"
-          ]
-        },
-        {
-          "file": "packages/shared/tsconfig.json",
-          "hash": "9491290877840530890"
-        },
-        {
-          "file": "packages/shared/utils/dateUtils.ts",
-          "hash": "13348816755371267055",
-          "deps": [
             "npm:dayjs"
           ]
         },
         {
-          "file": "packages/shared/utils/index.ts",
-          "hash": "12347396200465134928"
+          "file": "packages/shared/components/project.json",
+          "hash": "4465815387251831077"
         },
         {
-          "file": "packages/shared/utils/validationUtils.ts",
-          "hash": "11280039298649604013"
+          "file": "packages/shared/components/src/AssignmentItem.tsx",
+          "hash": "1724526153315305875",
+          "deps": [
+            "npm:react",
+            "npm:react-native",
+            "npm:expo-router",
+            "@core/services"
+          ]
+        },
+        {
+          "file": "packages/shared/components/src/Button.tsx",
+          "hash": "16784335535740162830",
+          "deps": [
+            "npm:react",
+            "npm:react-native"
+          ]
+        },
+        {
+          "file": "packages/shared/components/src/Card.tsx",
+          "hash": "50712182815688410",
+          "deps": [
+            "npm:react",
+            "npm:react-native"
+          ]
+        },
+        {
+          "file": "packages/shared/components/src/FormField.tsx",
+          "hash": "3049537490283976189",
+          "deps": [
+            "npm:react",
+            "npm:react-native",
+            "npm:react-hook-form"
+          ]
+        },
+        {
+          "file": "packages/shared/components/src/ImagePickerDialog.tsx",
+          "hash": "6737647928044533521",
+          "deps": [
+            "npm:react",
+            "npm:react-native",
+            "npm:expo-image-picker"
+          ]
+        },
+        {
+          "file": "packages/shared/components/src/PhotoUpload.tsx",
+          "hash": "13615004321522350246",
+          "deps": [
+            "npm:react",
+            "npm:react-native"
+          ]
+        },
+        {
+          "file": "packages/shared/components/src/TaskItem.tsx",
+          "hash": "5530867691540082244",
+          "deps": [
+            "npm:react",
+            "npm:react-native"
+          ]
+        },
+        {
+          "file": "packages/shared/components/src/index.ts",
+          "hash": "2209875132418646920"
         }
       ]
     }

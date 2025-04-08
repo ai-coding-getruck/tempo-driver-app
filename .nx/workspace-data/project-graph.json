@@ -134,7 +134,7 @@
           }
         },
         "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "packages/shared/components/src",
+        "sourceRoot": "packages/shared/utils/src",
         "projectType": "library",
         "implicitDependencies": []
       }
@@ -194,6 +194,65 @@
         },
         "$schema": "../../../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "packages/core/services/src",
+        "projectType": "library",
+        "implicitDependencies": []
+      }
+    },
+    "@shared/utils": {
+      "name": "@shared/utils",
+      "type": "lib",
+      "data": {
+        "root": "packages/shared/utils",
+        "name": "@shared/utils",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {},
+          "description": "",
+          "js": {
+            "packageName": "@shared/utils",
+            "packageMain": "./src/index.ts",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "packages/shared/utils/**/*.ts"
+              ]
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "packages/shared/utils/jest.config.ts"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "packages/shared/utils/src",
         "projectType": "library",
         "implicitDependencies": []
       }
@@ -275,98 +334,6 @@
         "$schema": "../../../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "packages/core/hooks/src",
         "projectType": "library",
-        "implicitDependencies": []
-      }
-    },
-    "shared": {
-      "name": "shared",
-      "type": "lib",
-      "data": {
-        "root": "packages/shared",
-        "projectType": "library",
-        "targets": {
-          "typecheck": {
-            "dependsOn": [
-              "^typecheck"
-            ],
-            "options": {
-              "cwd": "packages/shared",
-              "command": "tsc --build --emitDeclarationOnly"
-            },
-            "cache": true,
-            "inputs": [
-              "production",
-              "^production",
-              {
-                "externalDependencies": [
-                  "typescript"
-                ]
-              }
-            ],
-            "outputs": [
-              "{projectRoot}/dist/**/*.d.ts",
-              "{projectRoot}/dist/tsconfig.tsbuildinfo"
-            ],
-            "syncGenerators": [
-              "@nx/js:typescript-sync"
-            ],
-            "metadata": {
-              "technologies": [
-                "typescript"
-              ],
-              "description": "Runs type-checking for the project.",
-              "help": {
-                "command": "yarn tsc --build --help",
-                "example": {
-                  "args": [
-                    "--force"
-                  ]
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "test": {
-            "executor": "nx:run-script",
-            "options": {
-              "script": "test"
-            },
-            "metadata": {
-              "scriptContent": "echo \"Error: no test specified\" && exit 1",
-              "runCommand": "yarn test"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "nx-release-publish": {
-            "executor": "@nx/js:release-publish",
-            "dependsOn": [
-              "^nx-release-publish"
-            ],
-            "options": {},
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "shared",
-        "tags": [
-          "npm:public"
-        ],
-        "metadata": {
-          "targetGroups": {
-            "NPM Scripts": [
-              "test"
-            ]
-          },
-          "description": "",
-          "js": {
-            "packageName": "shared",
-            "packageMain": "index.js",
-            "isInPackageManagerWorkspaces": true
-          }
-        },
         "implicitDependencies": []
       }
     },
@@ -616,139 +583,6 @@
           "@core/hooks",
           "@core/infrastructure"
         ]
-      }
-    },
-    "client-b": {
-      "name": "client-b",
-      "type": "lib",
-      "data": {
-        "root": "apps/client-b",
-        "projectType": "library",
-        "targets": {
-          "typecheck": {
-            "dependsOn": [
-              "^typecheck"
-            ],
-            "options": {
-              "cwd": "apps/client-b",
-              "command": "echo \"The 'typecheck' target is disabled because one or more project references set 'noEmit: true' in their tsconfig. Remove this property to resolve this issue.\""
-            },
-            "cache": true,
-            "inputs": [
-              "production",
-              "^production",
-              {
-                "externalDependencies": [
-                  "typescript",
-                  "expo"
-                ]
-              }
-            ],
-            "outputs": [
-              "{projectRoot}/**/*.js",
-              "{projectRoot}/**/*.cjs",
-              "{projectRoot}/**/*.mjs",
-              "{projectRoot}/**/*.jsx",
-              "{projectRoot}/**/*.js.map",
-              "{projectRoot}/**/*.jsx.map",
-              "{projectRoot}/**/*.d.ts",
-              "{projectRoot}/**/*.d.cts",
-              "{projectRoot}/**/*.d.mts",
-              "{projectRoot}/**/*.d.ts.map",
-              "{projectRoot}/**/*.d.cts.map",
-              "{projectRoot}/**/*.d.mts.map",
-              "{projectRoot}/tsconfig.tsbuildinfo"
-            ],
-            "syncGenerators": [
-              "@nx/js:typescript-sync"
-            ],
-            "metadata": {
-              "technologies": [
-                "typescript"
-              ],
-              "description": "Runs type-checking for the project.",
-              "help": {
-                "command": "yarn tsc --build --help",
-                "example": {
-                  "args": [
-                    "--force"
-                  ]
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "start": {
-            "executor": "nx:run-script",
-            "options": {
-              "script": "start"
-            },
-            "metadata": {
-              "scriptContent": "expo start",
-              "runCommand": "yarn start"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "android": {
-            "executor": "nx:run-script",
-            "options": {
-              "script": "android"
-            },
-            "metadata": {
-              "scriptContent": "expo start --android",
-              "runCommand": "yarn android"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "ios": {
-            "executor": "nx:run-script",
-            "options": {
-              "script": "ios"
-            },
-            "metadata": {
-              "scriptContent": "expo start --ios",
-              "runCommand": "yarn ios"
-            },
-            "configurations": {},
-            "parallelism": true
-          },
-          "web": {
-            "executor": "nx:run-script",
-            "options": {
-              "script": "web"
-            },
-            "metadata": {
-              "scriptContent": "expo start --web",
-              "runCommand": "yarn web"
-            },
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "client-b",
-        "tags": [
-          "npm:private"
-        ],
-        "metadata": {
-          "targetGroups": {
-            "NPM Scripts": [
-              "start",
-              "android",
-              "ios",
-              "web"
-            ]
-          },
-          "js": {
-            "packageName": "client-b",
-            "packageMain": "index.ts",
-            "isInPackageManagerWorkspaces": true
-          }
-        },
-        "implicitDependencies": []
       }
     }
   },
@@ -8041,6 +7875,24 @@
         "version": "13.0.4",
         "packageName": "expo-font",
         "hash": "sha512-eAP5hyBgC8gafFtprsz0HMaB795qZfgJWqTmU0NfbSin1wUuVySFMEPMOrTkTgmazU73v4Cb4x7p86jY1XXYUw=="
+      }
+    },
+    "npm:expo-image-loader": {
+      "type": "npm",
+      "name": "npm:expo-image-loader",
+      "data": {
+        "version": "5.0.0",
+        "packageName": "expo-image-loader",
+        "hash": "sha512-Eg+5FHtyzv3Jjw9dHwu2pWy4xjf8fu3V0Asyy42kO+t/FbvW/vjUixpTjPtgKQLQh+2/9Nk4JjFDV6FwCnF2ZA=="
+      }
+    },
+    "npm:expo-image-picker": {
+      "type": "npm",
+      "name": "npm:expo-image-picker",
+      "data": {
+        "version": "16.0.6",
+        "packageName": "expo-image-picker",
+        "hash": "sha512-HN4xZirFjsFDIsWFb12AZh19fRzuvZjj2ll17cGr19VNRP06S/VPQU3Tdccn5vwUzQhOBlLu704CnNm278boiQ=="
       }
     },
     "npm:expo-keep-awake": {
@@ -16544,17 +16396,12 @@
       },
       {
         "source": "@shared/components",
-        "target": "npm:inversify",
-        "type": "static"
-      },
-      {
-        "source": "@shared/components",
-        "target": "npm:reflect-metadata",
-        "type": "static"
-      },
-      {
-        "source": "@shared/components",
         "target": "npm:react-hook-form",
+        "type": "static"
+      },
+      {
+        "source": "@shared/components",
+        "target": "npm:dayjs",
         "type": "static"
       },
       {
@@ -16565,6 +16412,16 @@
       {
         "source": "@shared/components",
         "target": "npm:react-native",
+        "type": "static"
+      },
+      {
+        "source": "@shared/components",
+        "target": "npm:expo-router",
+        "type": "static"
+      },
+      {
+        "source": "@shared/components",
+        "target": "npm:expo-image-picker",
         "type": "static"
       }
     ],
@@ -16595,6 +16452,18 @@
         "type": "static"
       }
     ],
+    "@shared/utils": [
+      {
+        "source": "@shared/utils",
+        "target": "@core/services",
+        "type": "static"
+      },
+      {
+        "source": "@shared/utils",
+        "target": "npm:dayjs",
+        "type": "static"
+      }
+    ],
     "@core/hooks": [
       {
         "source": "@core/hooks",
@@ -16604,18 +16473,6 @@
       {
         "source": "@core/hooks",
         "target": "@core/services",
-        "type": "static"
-      }
-    ],
-    "shared": [
-      {
-        "source": "shared",
-        "target": "npm:react-hook-form",
-        "type": "static"
-      },
-      {
-        "source": "shared",
-        "target": "npm:dayjs",
         "type": "static"
       }
     ],
@@ -16662,32 +16519,32 @@
       },
       {
         "source": "client-a",
+        "target": "@core/infrastructure",
+        "type": "static"
+      },
+      {
+        "source": "client-a",
+        "target": "npm:shared",
+        "type": "static"
+      },
+      {
+        "source": "client-a",
+        "target": "@core/services",
+        "type": "static"
+      },
+      {
+        "source": "client-a",
         "target": "@shared/components",
         "type": "static"
       },
       {
         "source": "client-a",
-        "target": "@core/services",
-        "type": "static"
-      },
-      {
-        "source": "client-a",
-        "target": "@core/infrastructure",
+        "target": "npm:react-hook-form",
         "type": "static"
       },
       {
         "source": "client-a",
         "target": "@core/hooks",
-        "type": "static"
-      },
-      {
-        "source": "client-a",
-        "target": "shared",
-        "type": "static"
-      },
-      {
-        "source": "client-a",
-        "target": "npm:react-hook-form",
         "type": "static"
       },
       {
@@ -16712,7 +16569,17 @@
       },
       {
         "source": "client-a",
+        "target": "@shared/utils",
+        "type": "static"
+      },
+      {
+        "source": "client-a",
         "target": "npm:expo-constants",
+        "type": "static"
+      },
+      {
+        "source": "client-a",
+        "target": "npm:expo-image-picker",
         "type": "static"
       },
       {
@@ -16727,98 +16594,6 @@
       },
       {
         "source": "client-a",
-        "target": "npm:react-native-screens",
-        "type": "static"
-      }
-    ],
-    "client-b": [
-      {
-        "source": "client-b",
-        "target": "npm:expo-status-bar",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:react-native@0.76.9",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:expo-router",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:react",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:inversify",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "@core/infrastructure",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "@core/hooks",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "shared",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "@core/services",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:react-hook-form",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:expo",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:@babel/core",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:@types/react",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:typescript",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:expo-constants",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:expo-linking",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
-        "target": "npm:react-native-safe-area-context",
-        "type": "static"
-      },
-      {
-        "source": "client-b",
         "target": "npm:react-native-screens",
         "type": "static"
       }
@@ -28395,6 +28170,13 @@
         "type": "static"
       }
     ],
+    "npm:expo-image-picker": [
+      {
+        "source": "npm:expo-image-picker",
+        "target": "npm:expo-image-loader",
+        "type": "static"
+      }
+    ],
     "npm:expo-linking": [
       {
         "source": "npm:expo-linking",
@@ -39057,5 +38839,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1744124340447
+  "computedAt": 1744126181133
 }
