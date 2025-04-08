@@ -12,6 +12,13 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "scheme": "client-a",
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
     "ios": {
       "supportsTablet": true
     },
@@ -22,7 +29,8 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
     }
   }
 }
